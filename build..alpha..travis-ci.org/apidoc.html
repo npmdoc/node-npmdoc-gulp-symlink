@@ -1,0 +1,619 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/ben-eb/gulp-symlink"
+
+    >gulp-symlink (v2.1.4)</a>
+</h1>
+<h4>Create symlinks during your gulp build.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-symlink">module gulp-symlink</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File">
+            function <span class="apidocSignatureSpan">gulp-symlink.</span>File
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink._setDebug">
+            function <span class="apidocSignatureSpan">gulp-symlink.</span>_setDebug
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.absolute">
+            function <span class="apidocSignatureSpan">gulp-symlink.</span>absolute
+            <span class="apidocSignatureSpan">(symlink, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.relative">
+            function <span class="apidocSignatureSpan">gulp-symlink.</span>relative
+            <span class="apidocSignatureSpan">(symlink, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gulp-symlink.</span>File.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-symlink.File">module gulp-symlink.File</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.File">
+            function <span class="apidocSignatureSpan">gulp-symlink.</span>File
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.isVinyl">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.</span>isVinyl
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-symlink.File.prototype">module gulp-symlink.File.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.prototype.clone">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>clone
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.prototype.inspect">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>inspect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.prototype.isBuffer">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isBuffer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.prototype.isDirectory">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isDirectory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.prototype.isNull">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isNull
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.prototype.isStream">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isStream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File.prototype.pipe">
+            function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>pipe
+            <span class="apidocSignatureSpan">(stream, opt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-symlink" id="apidoc.module.gulp-symlink">module gulp-symlink</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File" id="apidoc.element.gulp-symlink.File">
+        function <span class="apidocSignatureSpan">gulp-symlink.</span>File
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function File(file) {
+  if (!file) file = {};
+
+  // record path change
+  var history = file.path ? [file.path] : file.history;
+  this.history = history || [];
+
+  this.cwd = file.cwd || process.cwd();
+  this.base = file.base || this.cwd;
+
+  // stat = files stats object
+  this.stat = file.stat || null;
+
+  // contents = stream, buffer, or null if not read
+  this.contents = file.contents || null;
+
+  this._isVinyl = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }));
+});
+
+gulp.task(&#x27;symlink-vinyl&#x27;, function () {
+  return gulp.src(&#x27;assets/some-large-video.mp4&#x27;)
+    .pipe(symlink.absolute(function (file) {
+        // Here we return a new Vinyl instance
+        return new symlink.<span class="apidocCodeKeywordSpan">File</span>({
+          path: &#x27;build/videos/video.mp4&#x27;,
+          cwd: process.cwd()
+        });
+    }, {force: true}));
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink._setDebug" id="apidoc.element.gulp-symlink._setDebug">
+        function <span class="apidocSignatureSpan">gulp-symlink.</span>_setDebug
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_setDebug = function (value) {
+  debug = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.absolute" id="apidoc.element.gulp-symlink.absolute">
+        function <span class="apidocSignatureSpan">gulp-symlink.</span>absolute
+        <span class="apidocSignatureSpan">(symlink, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">absolute = function (symlink, options) {
+  return symlinker(symlink, &#x27;absolute&#x27;, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .pipe(symlink(&#x27;build/videos&#x27;)) // Write to the destination folder
+    .pipe(symlink(&#x27;build/videos/renamed-video.mp4&#x27;)) // Write a renamed symlink to the destination folder
+});
+```
+
+## API
+
+### symlink(path, [options]), symlink.relative(path, [options]) or symlink.<span class="apidocCodeKeywordSpan">absolute</span>(path
+, [options])
+
+Pass a `string` or a `function` to create the symlink.
+The function is passed the [vinyl](https://github.com/wearefractal/vinyl) object, so you can use `file.base`, `file.path` etc.
+For example:
+
+```js
+gulp.task(&#x27;symlink&#x27;, function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.relative" id="apidoc.element.gulp-symlink.relative">
+        function <span class="apidocSignatureSpan">gulp-symlink.</span>relative
+        <span class="apidocSignatureSpan">(symlink, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">relative = function (symlink, options) {
+  return symlinker(symlink, &#x27;relative&#x27;, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .pipe(symlink(&#x27;build/videos&#x27;)) // Write to the destination folder
+    .pipe(symlink(&#x27;build/videos/renamed-video.mp4&#x27;)) // Write a renamed symlink to the destination folder
+});
+```
+
+## API
+
+### symlink(path, [options]), symlink.<span class="apidocCodeKeywordSpan">relative</span>(path, [options]) or symlink.absolute(path
+, [options])
+
+Pass a `string` or a `function` to create the symlink.
+The function is passed the [vinyl](https://github.com/wearefractal/vinyl) object, so you can use `file.base`, `file.path` etc.
+For example:
+
+```js
+gulp.task(&#x27;symlink&#x27;, function () {
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-symlink.File" id="apidoc.module.gulp-symlink.File">module gulp-symlink.File</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.File" id="apidoc.element.gulp-symlink.File.File">
+        function <span class="apidocSignatureSpan">gulp-symlink.</span>File
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function File(file) {
+  if (!file) file = {};
+
+  // record path change
+  var history = file.path ? [file.path] : file.history;
+  this.history = history || [];
+
+  this.cwd = file.cwd || process.cwd();
+  this.base = file.base || this.cwd;
+
+  // stat = files stats object
+  this.stat = file.stat || null;
+
+  // contents = stream, buffer, or null if not read
+  this.contents = file.contents || null;
+
+  this._isVinyl = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }));
+});
+
+gulp.task(&#x27;symlink-vinyl&#x27;, function () {
+  return gulp.src(&#x27;assets/some-large-video.mp4&#x27;)
+    .pipe(symlink.absolute(function (file) {
+        // Here we return a new Vinyl instance
+        return new symlink.<span class="apidocCodeKeywordSpan">File</span>({
+          path: &#x27;build/videos/video.mp4&#x27;,
+          cwd: process.cwd()
+        });
+    }, {force: true}));
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.isVinyl" id="apidoc.element.gulp-symlink.File.isVinyl">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.</span>isVinyl
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isVinyl = function (file) {
+  return file &#x26;&#x26; file._isVinyl === true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-symlink.File.prototype" id="apidoc.module.gulp-symlink.File.prototype">module gulp-symlink.File.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.prototype.clone" id="apidoc.element.gulp-symlink.File.prototype.clone">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>clone
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (opt) {
+  if (typeof opt === &#x27;boolean&#x27;) {
+    opt = {
+      deep: opt,
+      contents: true
+    };
+  } else if (!opt) {
+    opt = {
+      deep: true,
+      contents: true
+    };
+  } else {
+    opt.deep = opt.deep === true;
+    opt.contents = opt.contents !== false;
+  }
+
+  // clone our file contents
+  var contents;
+  if (this.isStream()) {
+    contents = this.contents.pipe(new Stream.PassThrough());
+    this.contents = this.contents.pipe(new Stream.PassThrough());
+  } else if (this.isBuffer()) {
+    contents = opt.contents ? cloneBuffer(this.contents) : this.contents;
+  }
+
+  var file = new File({
+    cwd: this.cwd,
+    base: this.base,
+    stat: (this.stat ? cloneStats(this.stat) : null),
+    history: this.history.slice(),
+    contents: contents
+  });
+
+  // clone our custom properties
+  Object.keys(this).forEach(function(key) {
+    // ignore built-in fields
+    if (key === &#x27;_contents&#x27; || key === &#x27;stat&#x27; ||
+      key === &#x27;history&#x27; || key === &#x27;path&#x27; ||
+      key === &#x27;base&#x27; || key === &#x27;cwd&#x27;) {
+      return;
+    }
+    file[key] = opt.deep ? clone(this[key], true) : this[key];
+  }, this);
+  return file;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.prototype.inspect" id="apidoc.element.gulp-symlink.File.prototype.inspect">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>inspect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">inspect = function () {
+  var inspect = [];
+
+  // use relative path if possible
+  var filePath = (this.base &#x26;&#x26; this.path) ? this.relative : this.path;
+
+  if (filePath) {
+    inspect.push(&#x27;&#x22;&#x27;+filePath+&#x27;&#x22;&#x27;);
+  }
+
+  if (this.isBuffer()) {
+    inspect.push(this.contents.inspect());
+  }
+
+  if (this.isStream()) {
+    inspect.push(inspectStream(this.contents));
+  }
+
+  return &#x27;&#x3c;File &#x27;+inspect.join(&#x27; &#x27;)+&#x27;&#x3e;&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.prototype.isBuffer" id="apidoc.element.gulp-symlink.File.prototype.isBuffer">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isBuffer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isBuffer = function () {
+  return isBuffer(this.contents);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.prototype.isDirectory" id="apidoc.element.gulp-symlink.File.prototype.isDirectory">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isDirectory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isDirectory = function () {
+  return this.isNull() &#x26;&#x26; this.stat &#x26;&#x26; this.stat.isDirectory();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+          fs.stat(source.path, function(err, stat) {
+if(err) {
+  return errored.call(self, err, callback);
+}
+
+source.stat = stat;
+
+fs.symlink(source.resolved, symlink.path, source.stat.<span class="apidocCodeKeywordSpan">isDirectory</span>() ? &#x27;dir&#x27; : &#
+x27;file&#x27;, function(err) {
+  var success = function(){
+    if (options.log) {
+      gutil.log(PLUGIN_NAME + &#x27;:&#x27; + gutil.colors.magenta(source.path), &#x27;symlinked to&#x27;, gutil.colors.magenta(
+symlink.path));
+    }
+    self.push(source);
+    return callback();
+  };
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.prototype.isNull" id="apidoc.element.gulp-symlink.File.prototype.isNull">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isNull
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isNull = function () {
+  return isNull(this.contents);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.prototype.isStream" id="apidoc.element.gulp-symlink.File.prototype.isStream">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>isStream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isStream = function () {
+  return isStream(this.contents);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.File.prototype.pipe" id="apidoc.element.gulp-symlink.File.prototype.pipe">
+        function <span class="apidocSignatureSpan">gulp-symlink.File.prototype.</span>pipe
+        <span class="apidocSignatureSpan">(stream, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pipe = function (stream, opt) {
+  if (!opt) opt = {};
+  if (typeof opt.end === &#x27;undefined&#x27;) opt.end = true;
+
+  if (this.isStream()) {
+    return this.contents.pipe(stream, opt);
+  }
+  if (this.isBuffer()) {
+    if (opt.end) {
+      stream.end(this.contents);
+    } else {
+      stream.write(this.contents);
+    }
+    return stream;
+  }
+
+  // isNull
+  if (opt.end) stream.end();
+  return stream;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+You may replace this module with a call to [vinyl-fs][vfs] for gulp 3.x:
+
+```js
+var vfs = require(&#x27;vinyl-fs&#x27;);
+
+gulp.task(&#x27;symlink&#x27;, function () {
+  return vfs.src(&#x27;assets/some-large-video.mp4&#x27;, {followSymlinks: false})
+  .<span class="apidocCodeKeywordSpan">pipe</span>(vfs.symlink(&#x27;build/videos&#x27;));
+});
+```
+
+[vfs]: https://github.com/gulpjs/vinyl-fs
+
+# [gulp](https://github.com/gulpjs/gulp)-symlink
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
