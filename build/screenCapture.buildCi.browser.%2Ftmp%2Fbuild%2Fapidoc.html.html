@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.gulp-symlink">
+            function <span class="apidocSignatureSpan"></span>gulp-symlink
+            <span class="apidocSignatureSpan">(symlink, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.File">
             function <span class="apidocSignatureSpan">gulp-symlink.</span>File
             <span class="apidocSignatureSpan">(file)</span>
@@ -187,10 +196,65 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-symlink.relative">module gulp-symlink.relative</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.relative.relative">
+            function <span class="apidocSignatureSpan">gulp-symlink.</span>relative
+            <span class="apidocSignatureSpan">(symlink, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.relative.File">
+            function <span class="apidocSignatureSpan">gulp-symlink.relative.</span>File
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.relative._setDebug">
+            function <span class="apidocSignatureSpan">gulp-symlink.relative.</span>_setDebug
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-symlink.relative.absolute">
+            function <span class="apidocSignatureSpan">gulp-symlink.relative.</span>absolute
+            <span class="apidocSignatureSpan">(symlink, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gulp-symlink" id="apidoc.module.gulp-symlink">module gulp-symlink</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.gulp-symlink" id="apidoc.element.gulp-symlink.gulp-symlink">
+        function <span class="apidocSignatureSpan"></span>gulp-symlink
+        <span class="apidocSignatureSpan">(symlink, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gulp-symlink = function (symlink, options) {
+  return symlinker(symlink, 'relative', options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -598,6 +662,135 @@ gulp.task('symlink', function () {
 [vfs]: https://github.com/gulpjs/vinyl-fs
 
 # [gulp](https://github.com/gulpjs/gulp)-symlink
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-symlink.relative" id="apidoc.module.gulp-symlink.relative">module gulp-symlink.relative</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.relative.relative" id="apidoc.element.gulp-symlink.relative.relative">
+        function <span class="apidocSignatureSpan">gulp-symlink.</span>relative
+        <span class="apidocSignatureSpan">(symlink, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">relative = function (symlink, options) {
+  return symlinker(symlink, 'relative', options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .pipe(symlink('build/videos')) // Write to the destination folder
+    .pipe(symlink('build/videos/renamed-video.mp4')) // Write a renamed symlink to the destination folder
+});
+```
+
+## API
+
+### symlink(path, [options]), symlink.<span class="apidocCodeKeywordSpan">relative</span>(path, [options]) or symlink.absolute(path
+, [options])
+
+Pass a `string` or a `function` to create the symlink.
+The function is passed the [vinyl](https://github.com/wearefractal/vinyl) object, so you can use `file.base`, `file.path` etc.
+For example:
+
+```js
+gulp.task('symlink', function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.relative.File" id="apidoc.element.gulp-symlink.relative.File">
+        function <span class="apidocSignatureSpan">gulp-symlink.relative.</span>File
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function File(file) {
+  if (!file) file = {};
+
+  // record path change
+  var history = file.path ? [file.path] : file.history;
+  this.history = history || [];
+
+  this.cwd = file.cwd || process.cwd();
+  this.base = file.base || this.cwd;
+
+  // stat = files stats object
+  this.stat = file.stat || null;
+
+  // contents = stream, buffer, or null if not read
+  this.contents = file.contents || null;
+
+  this._isVinyl = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }));
+});
+
+gulp.task('symlink-vinyl', function () {
+  return gulp.src('assets/some-large-video.mp4')
+    .pipe(symlink.absolute(function (file) {
+        // Here we return a new Vinyl instance
+        return new symlink.<span class="apidocCodeKeywordSpan">File</span>({
+          path: 'build/videos/video.mp4',
+          cwd: process.cwd()
+        });
+    }, {force: true}));
+})
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.relative._setDebug" id="apidoc.element.gulp-symlink.relative._setDebug">
+        function <span class="apidocSignatureSpan">gulp-symlink.relative.</span>_setDebug
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_setDebug = function (value) {
+  debug = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-symlink.relative.absolute" id="apidoc.element.gulp-symlink.relative.absolute">
+        function <span class="apidocSignatureSpan">gulp-symlink.relative.</span>absolute
+        <span class="apidocSignatureSpan">(symlink, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">absolute = function (symlink, options) {
+  return symlinker(symlink, 'absolute', options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .pipe(symlink('build/videos')) // Write to the destination folder
+    .pipe(symlink('build/videos/renamed-video.mp4')) // Write a renamed symlink to the destination folder
+});
+```
+
+## API
+
+### symlink(path, [options]), symlink.relative(path, [options]) or symlink.<span class="apidocCodeKeywordSpan">absolute</span>(path
+, [options])
+
+Pass a `string` or a `function` to create the symlink.
+The function is passed the [vinyl](https://github.com/wearefractal/vinyl) object, so you can use `file.base`, `file.path` etc.
+For example:
+
+```js
+gulp.task('symlink', function () {
 ...</pre></li>
     </ul>
 
